@@ -1,1 +1,495 @@
 
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="http://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="assets/css/bootstrap.min30f4.css">
+<link rel="stylesheet" href="assets/css/fontawesome.all.min30f4.css">
+<link rel="stylesheet" href="assets/css/owl.carousel30f4.css">
+<link rel="stylesheet" href="assets/css/mainae52.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+
+<script>
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*1*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+</script>
+<script src="assets/js/modernizr-custom5e1f5e1f.js?v=2"></script>
+<style>
+  
+  .add-button {
+    position: fixed;
+    float: left;
+    bottom: 50px;
+    /*left: 0px;*/
+    z-index: 99999999;
+    color: #fbfbfb;
+    font-weight: bold;
+    font-size: large;
+    border-radius: 25px;
+}
+  
+  /*.horizontal-list-wrapper .game-one-half-slot {display: none;}*/
+  .game-one-half-slot {display: none;}
+  .ribbon-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 80px;
+  }
+    
+  .ribbon{
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    overflow: hidden;
+  }
+
+  .ribbon::before,
+  .ribbon::after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    display: block;
+  }
+
+  .ribbon span {
+    position: absolute;
+    display: block;
+    width: 60%;
+    padding: 0px 0;
+    background-color: red;
+    /*box-shadow: 0 5px 10px black;*/
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-shadow: 0 1px 1px black;
+    text-transform: uppercase;
+    text-align: center;
+    top: 13px;
+    left: -15px; 
+    z-index: 100;
+  }
+
+  .ribbon-top-right {
+    top: 0px;
+    left: 0px;
+  }
+  .ribbon-top-right::before,
+  .ribbon-top-right::after {
+    border-top-color: transparent;
+    border-right-color: transparent;
+  }
+  .ribbon-top-right::before {
+    top: 0;
+    left: 0;
+  }
+  .ribbon-top-right::after {
+    bottom: 0;
+    right: 0;
+  }
+  .ribbon-top-right span {
+    right: 74%;
+    transform: rotate(-45deg);
+  }
+  .active {
+    background: #00a0ba;
+  }
+  
+  .badge-game{position: absolute;height: 20px;width: 20px;border-radius: 0;right: 0;z-index: 1;-webkit-transition: all 500ms ease 0s;-moz-transition: all 500ms ease 0s;-o-transition: all 500ms ease 0s;transition: all 500ms ease 0s;}
+  .badge-game i{display: inline-block; background-position: center;background-repeat: no-repeat; height: 19px; width: 20px;  background-size: 14px;}
+  .badge-game.ttg {background: #d61e01}
+  .badge-game.ttg i{background-image: url(assets/img/icon/provider/logo-ttg.svg);}
+  .badge-game.pragmatic i{background-image: url(assets/img/icon/provider/pragmaticPlay.png);height: 26px;width: 20px;background-size: 35px;}
+  .badge-game.playngo {background: #28291d}
+  .badge-game.playngo i{background-image: url(assets/img/icon/provider/playngo.png);}
+  .badge-game.habanero {background: #e1791d}
+  .badge-game.habanero i{background-image: url(assets/img/icon/provider/habanero.svg);}
+  .badge-game.playtech {background: #eefac4}
+  .badge-game.playtech i{background-image: url(assets/img/icon/provider/playngo.png);}
+  .badge-game.playtech {background: #2a6ac4}
+  .badge-game.playtech i{background-image: url(assets/img/icon/provider/playtech.png);}
+  .badge-game.jdb {background: #ef0040}
+  .badge-game.jdb i{background-image: url(assets/img/icon/provider/jdb.png);}
+  .badge-game.redtiger {background: #70080d}
+  .badge-game.redtiger i{background-image: url(assets/img/icon/provider/redtiger.svg);}
+  .badge-game.spadegaming {background: #bf9a62}
+  .badge-game.spadegaming i{background-image: url(assets/img/icon/provider/spadegaming.svg);}
+  .badge-game.microgaming {background: #0fa427}
+  .badge-game.microgaming i{background-image: url(assets/img/icon/provider/microgaming.svg);}
+  .badge-game.gameplay {background: #a8c52c}
+  .badge-game.gameplay i{background-image: url(assets/img/icon/provider/gameplay.svg);}
+  .badge-game.isoftbet i{background-image: url(assets/img/icon/provider/isoftbet38603860.png?v=1);height: 24px;width: 20px;background-size: 18px;}
+  .badge-game.sa {background: #bf9a5d}
+  .badge-game.sa i{background-image: url(assets/img/icon/provider/sa.svg);}
+</style>
+</head>
+<body>
+<div class='errorpage' id='errorpage'><center><h1>Ops.. Connection Error!</h1><button onclick="location.reload();"><h2>TRY AGAIN</h2></button></center></div>
+<div class='containerl' id='loading'>
+<!-- old loading code
+<div class='loader'>
+    <div class='loader--dot'></div>
+    <div class='loader--dot'></div>
+    <div class='loader--dot'></div>
+    <div class='loader--dot'></div>
+    <div class='loader--dot'></div>
+    <div class='loader--dot'></div>
+    <div class='loader--text'></div>
+</div>-->
+<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+</div>
+<div id="wrapper" style="display:none;">
+<div class="overlaySpinner" style="display:none"></div>
+<div class="spinner spinnerInitial" style="display:none"></div>
+<nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
+</nav>
+<div id="page-content-wrapper">
+<div class="header">
+
+<a class="navbar-brand" href="#">Slot Asli</a>
+
+
+</div>
+<div class="header-clear"></div>
+<div class="overlay"></div>
+
+
+<div class="overlayPage" style="display:none"></div>
+<div class="mb-lg">
+<div class="owl-carousel slots-game-menu text-center" id="provider-row" style="z-index: 202">
+
+</div>
+<div class="horizontal-list-wrapper slots-wrapper" id="slot-games-wrapper"> <div class="game-one-half-slot">
+ 
+<a class="login-modal" onclick="window.open('load.html?id=vs20sbxmas', 'Sweet Bonanza Xmas', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,scrollbars=yes,width=800px,left=450,height=800px,top=200');" data-backdrop="static" data-keyboard="false">
+<div class="game-box-slots" style="position: relative;">
+
+<div class="badge-game pragmatic"><i></i></div>
+
+
+<img class="responsive-image lazy" src="game_pic/square/200/vs20sbxmas.png" data-original="game_pic/square/200/vs20sbxmas.png" alt="Main Sweet Bonanza Xmas">
+<div class="game-title-slots">Main Sweet Bonanza Xmas</div>
+</div>
+</a>
+
+</div>
+<div class="game-one-half-slot">
+
+<a class="login-modal" onclick="window.open('load.html?id=vswaysrhino', 'Great Rhino Megaways', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,scrollbars=yes,width=800px,left=450,height=800px,top=200');" data-backdrop="static" data-keyboard="false">
+<div class="game-box-slots" style="position: relative;">
+
+<div class="badge-game pragmatic"><i></i></div>
+
+
+<img class="responsive-image lazy" src="game_pic/square/200/vswaysrhino.png" data-original="game_pic/square/200/vswaysrhino.png" alt="Main Great Rhino Megaways">
+<div class="game-title-slots">Main Great Rhino Megaways</div>
+</div>
+</a>
+
+</div>
+<div class="game-one-half-slot">
+
+<a class="login-modal" onclick="window.open('load.html?id=vs25rio', 'Heart of Rio', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,scrollbars=yes,width=800px,left=450,height=800px,top=200');" data-backdrop="static" data-keyboard="false">
+<div class="game-box-slots" style="position: relative;">
+
+ <div class="badge-game pragmatic"><i></i></div>
+
+
+<img class="responsive-image lazy" src="game_pic/square/200/vs25rio.png" data-original="game_pic/square/200/vs25rio.png" alt="Main Heart of Rio">
+<div class="game-title-slots">Main Heart of Rio</div>
+</div>
+</a>
+
+</div>
+<div class="game-one-half-slot">
+
+<a class="login-modal" onclick="window.open('load.html?id=vs10amm', 'Amazing Money Machine', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,scrollbars=yes,width=800px,left=450,height=800px,top=200');" data-backdrop="static" data-keyboard="false">
+<div class="game-box-slots" style="position: relative;">
+
+<div class="badge-game pragmatic"><i></i></div>
+
+
+<img class="responsive-image lazy" src="game_pic/square/200/vs10amm.png" data-original="game_pic/square/200/vs10amm.png" alt="Main Amazing Money Machine">
+<div class="game-title-slots">Main Amazing Money Machine</div>
+</div>
+</a>
+
+</div>
+<div class="game-one-half-slot">
+
+<a class="login-modal" onclick="window.open('load.html?id=vs20hburnhs', 'Hot to Burn Hold and Spin', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,scrollbars=yes,width=800px,left=450,height=800px,top=200');" data-backdrop="static" data-keyboard="false">
+<div class="game-box-slots" style="position: relative;">
+
+<div class="badge-game pragmatic"><i></i></div>
+
+
+<img class="responsive-image lazy" src="game_pic/square/200/vs20hburnhs.png" data-original="game_pic/square/200/vs20hburnhs.png" alt="Main Hot to Burn Hold and Spin">
+<div class="game-title-slots">Main Hot to Burn Hold and Spin</div>
+</div>
+</a>
+
+</div>
+<div class="game-one-half-slot">
+
+<a class="login-modal" onclick="window.open('load.html?id=vs15diamond', 'Diamond Strike', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,scrollbars=yes,width=800px,left=450,height=800px,top=200');" data-backdrop="static" data-keyboard="false">
+<div class="game-box-slots" style="position: relative;">
+
+<div class="badge-game pragmatic"><i></i></div>
+
+
+<img class="responsive-image lazy" src="game_pic/square/200/vs15diamond.png" data-original="game_pic/square/200/vs15diamond.png" alt="Main Diamond Strike">
+<div class="game-title-slots">Main Diamond Strike</div>
+</div>
+</a>
+
+</div>
+<div class="game-one-half-slot">
+
+<a class="login-modal" onclick="window.open('load.html?id=vs25mustang', 'Mustang Gold', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,scrollbars=yes,width=800px,left=450,height=800px,top=200');" data-backdrop="static" data-keyboard="false">
+<div class="game-box-slots" style="position: relative;">
+
+<div class="badge-game pragmatic"><i></i></div>
+
+
+<img class="responsive-image lazy" src="game_pic/square/200/vs25mustang.png" data-original="game_pic/square/200/vs25mustang.png" alt="Main Mustang Gold">
+<div class="game-title-slots">Main Mustang Gold</div>
+</div>
+</a>
+
+</div>
+<div class="game-one-half-slot">
+
+<a class="login-modal" onclick="window.open('load.html?id=vswayslight', 'Lucky Lightning', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,scrollbars=yes,width=800px,left=450,height=800px,top=200');" data-backdrop="static" data-keyboard="false">
+<div class="game-box-slots" style="position: relative;">
+
+<div class="badge-game pragmatic"><i></i></div>
+
+
+<img class="responsive-image lazy" src="game_pic/square/200/vswayslight.png" data-original="game_pic/square/200/vswayslight.png" alt="Main Lucky Lightning">
+<div class="game-title-slots">Main Lucky Lightning</div>
+</div>
+</a>
+
+</div>
+<div class="game-one-half-slot">
+
+<a class="login-modal" onclick="window.open('load.html?id=vs20fparty2', 'Fruit Party 2', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,scrollbars=yes,width=800px,left=450,height=800px,top=200');" data-backdrop="static" data-keyboard="false">
+<div class="game-box-slots" style="position: relative;">
+
+<div class="badge-game pragmatic"><i></i></div>
+
+
+<img class="responsive-image lazy" src="game_pic/square/200/vs20fparty2.png" data-original="game_pic/square/200/vs20fparty2.png" alt="Main Fruit Party 2">
+<div class="game-title-slots">Main Fruit Party 2</div>
+</div>
+</a>
+
+</div>
+<div class="game-one-half-slot">
+
+<a class="login-modal" onclick="window.open('load.html?id=vs5ultra', 'Ultra Hold and Spin', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,scrollbars=yes,width=800px,left=450,height=800px,top=200');" data-backdrop="static" data-keyboard="false">
+<div class="game-box-slots" style="position: relative;">
+
+<div class="badge-game pragmatic"><i></i></div>
+
+
+<img class="responsive-image lazy" src="game_pic/square/200/vs5ultra.png" data-original="game_pic/square/200/vs5ultra.png" alt="Main Ultra Hold and Spin">
+<div class="game-title-slots">Main Ultra Hold and Spin</div>
+</div>
+</a>
+
+</div>
+<div class="game-one-half-slot">
+
+<a class="login-modal" onclick="window.open('load.html?id=vs25gldox', 'Golden Ox', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,scrollbars=yes,width=800px,left=450,height=800px,top=200');" data-backdrop="static" data-keyboard="false">
+<div class="game-box-slots" style="position: relative;">
+
+<div class="badge-game pragmatic"><i></i></div>
+
+
+<img class="responsive-image lazy" src="game_pic/square/200/vs25gldox.png" data-original="game_pic/square/200/vs25gldox.png" alt="Main Golden Ox">
+<div class="game-title-slots">Main Golden Ox</div>
+</div>
+</a>
+
+</div>
+<div class="game-one-half-slot">
+
+<a class="login-modal" onclick="window.open('load.html?id=vs1024temuj', 'Temujin Treasures', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,scrollbars=yes,width=800px,left=450,height=800px,top=200');" data-backdrop="static" data-keyboard="false">
+<div class="game-box-slots" style="position: relative;">
+
+<div class="badge-game pragmatic"><i></i></div>
+
+
+<img class="responsive-image lazy" src="game_pic/square/200/vs1024temuj.png" data-original="game_pic/square/200/vs1024temuj.png" alt="Main Temujin Treasures">
+<div class="game-title-slots">Main Temujin Treasures</div>
+</div>
+</a>
+
+</div>
+<div class="game-one-half-slot">
+
+ <a class="login-modal" onclick="window.open('load.html?id=vs20santa', 'Santa', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,scrollbars=yes,width=800px,left=450,height=800px,top=200');" data-backdrop="static" data-keyboard="false">
+<div class="game-box-slots" style="position: relative;">
+
+<div class="badge-game pragmatic"><i></i></div>
+
+
+<img class="responsive-image lazy" src="game_pic/square/200/vs20santa.png" data-original="game_pic/square/200/vs20santa.png" alt="Main Santa">
+<div class="game-title-slots">Main Santa</div>
+</div>
+</a>
+
+</div>
+<div class="game-one-half-slot">
+
+<a class="login-modal" onclick="window.open('load.html?id=vs7fire88', 'Fire 88', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,scrollbars=yes,width=800px,left=450,height=800px,top=200');" data-backdrop="static" data-keyboard="false">
+<div class="game-box-slots" style="position: relative;">
+
+<div class="badge-game pragmatic"><i></i></div>
+
+
+<img class="responsive-image lazy" src="game_pic/square/200/vs7fire88.png" data-original="game_pic/square/200/vs7fire88.png" alt="Main Fire 88">
+<div class="game-title-slots">Main Fire 88</div>
+</div>
+</a>
+
+</div>
+<div class="game-one-half-slot">
+
+<a class="login-modal" onclick="window.open('load.html?id=vs25pyramid', 'Pyramid King', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,scrollbars=yes,width=800px,left=450,height=800px,top=200');" data-backdrop="static" data-keyboard="false">
+<div class="game-box-slots" style="position: relative;">
+
+<div class="badge-game pragmatic"><i></i></div>
+
+
+<img class="responsive-image lazy" src="game_pic/square/200/vs25pyramid.png" data-original="game_pic/square/200/vs25pyramid.png" alt="Main Pyramid King">
+<div class="game-title-slots">Main Pyramid King</div>
+</div>
+</a>
+
+</div>
+
+<div class="clear"></div>
+</div>
+
+
+
+</div>
+</div>
+
+
+<script src="assets/js/jquery-3.3.1.min30f430f4.js?v=3"></script>
+<script src="assets/js/popper.min30f430f4.js?v=3"></script>
+<script src="assets/js/bootstrap.min30f430f4.js?v=3"></script>
+<script src="assets/js/mediaQueryLoad30f430f4.js?v=3"></script>
+<script src="assets/js/owl.carousel.min30f430f4.js?v=3"></script>
+<script src="assets/js/accounting.min30f430f4.js?v=3"></script>
+<script src="assets/js/response.min30f430f4.js?v=3"></script>
+<script src="assets/js/jquery.lazyload30f430f4.js?v=3"></script>
+<script src="assets/js/jquery.price_format.min30f430f4.js?v=3"></script>
+<script src="assets/js/main8e5e8e5e.js?v=15"></script>
+
+<script>
+    $(function(){
+        $("div.provider-row").lazyload();
+        $("img.lazy").lazyload();
+
+          });
+
+    
+	  $(document).ready(function () {
+	  	$("#loadmore").css("display", "none");
+	    size = $(".horizontal-list-wrapper .game-one-half-slot").length;
+      if(size > 30){
+        $("#loadmore").css("display", "block");
+      }
+	    x = 30;
+	    $('.horizontal-list-wrapper .game-one-half-slot:lt('+x+')').show();
+	    $('#loadmore').click(function () {
+	    	loadingGifandOverlay("true");
+        x = (x+30 <= size) ? x+30 : size;
+        $('.horizontal-list-wrapper .game-one-half-slot:lt('+x+')').show();
+        loadingGifandOverlay("false");
+        if(x >= size){
+        	$("#loadmore").css("display", "none");
+        }
+	    });
+
+      $("#provider-row").owlCarousel({
+        items : 6,
+        singleItem : false,
+        navigation : false,
+        pagination : false,
+        responsive: true,
+        itemsDesktop : [1199,11],
+        itemsDesktopSmall : [980,9],
+        itemsTablet: [640,7],
+        itemsTabletSmall: true,
+        itemsMobile : [375,4],
+      });
+
+      var currentPosition = $('.owl-active-item').data('position') + 2;
+      $('.owl-wrapper').trigger('owl.goTo', currentPosition);
+		});
+
+    $('#show-more-games').on('click', function(){
+      if (!$('#show-more-games').hasClass('expand')){
+        $('.games-menu-inner').addClass('games-menu-expanded');
+        $('#show-more-games').find('span').text('Less');
+        $('#show-more-games').find('i').removeClass('fa-chevron-down');
+        $('#show-more-games').find('i').addClass('fa-chevron-up');
+        $('#show-more-games').addClass('expand');
+        $('#show-more-games').parent().addClass('active');
+        $('.overlay-bg').addClass('open');
+      } else {
+        $('.games-menu-inner').removeClass('games-menu-expanded');
+        $('#show-more-games').find('span').text('More');
+        $('#show-more-games').find('i').removeClass('fa-chevron-up');
+        $('#show-more-games').find('i').addClass('fa-chevron-down');
+        $('#show-more-games').removeClass('expand');
+        $('#show-more-games').parent().removeClass('active');
+        $('.overlay-bg').removeClass('open');
+      }
+    });
+
+    // $(".btn-provider").click(function(){
+    //   var id = $(this).data('id');
+    //   $(".btn-provider").removeClass('active');
+    //   $(this).addClass('active');
+    //   $("#slot-games-wrapper").empty();
+    //   loadingGifandOverlay("true");
+      
+    //   $.get('/slot/'+ id , function(data) {
+    //     $("#slot-games-wrapper").html(data);
+    //   });
+    //   loadingGifandOverlay("false");
+    // });
+
+    var versionUpdate = (new Date()).getTime();  
+    var script = document.createElement("script");  
+    script.type = "text/javascript";  
+    script.src = "assets/js/log.js"+ "?v=" + versionUpdate;  
+    document.body.appendChild(script); 
+    script.onerror = function() {
+        document.getElementById("errorpage").style.display = "block";
+        document.getElementById("loading").style.display = "none";
+    }; 
+	</script>
+</body>
+
+</html>
