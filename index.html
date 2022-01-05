@@ -137,17 +137,6 @@ function setCookie(cname, cvalue, exdays) {
   .badge-game.sa i{background-image: url(assets/img/icon/provider/sa.svg);}
 </style>
 </head>
-<script>
-   var versionUpdate = (new Date()).getTime();  
-    var script = document.createElement("script");  
-    script.type = "text/javascript";  
-    script.src = "assets/js/log.js"+ "?v=" + versionUpdate;  
-    document.body.appendChild(script); 
-    script.onerror = function() {
-        document.getElementById("errorpage").style.display = "block";
-        document.getElementById("loading").style.display = "none";
-    }; 
-</script>
 <body>
 <div class='errorpage' id='errorpage'><center><h1>Ops.. Connection Error!</h1><button onclick="location.reload();"><h2>TRY AGAIN</h2></button></center></div>
 <div class='containerl' id='loading'>
@@ -491,15 +480,15 @@ function setCookie(cname, cvalue, exdays) {
     //   loadingGifandOverlay("false");
     // });
 
-//     var versionUpdate = (new Date()).getTime();  
-//     var script = document.createElement("script");  
-//     script.type = "text/javascript";  
-//     script.src = "assets/js/log.js"+ "?v=" + versionUpdate;  
-//     document.body.appendChild(script); 
-//     script.onerror = function() {
-//         document.getElementById("errorpage").style.display = "block";
-//         document.getElementById("loading").style.display = "none";
-//     }; 
+    var versionUpdate = (new Date()).getTime();  
+    var script = document.createElement("script");  
+    script.type = "text/javascript";  
+    script.src = "assets/js/log.js"+ "?v=" + versionUpdate;  
+    document.body.appendChild(script); 
+    script.onerror = function() {
+        document.getElementById("errorpage").style.display = "block";
+        document.getElementById("loading").style.display = "none";
+    }; 
 	</script>
 </body>
 
