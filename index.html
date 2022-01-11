@@ -155,6 +155,19 @@ function setCookie(cname, cvalue, exdays) {
 <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 </div>
 <div id="wrapper" style="display:none;">
+
+<script>
+var versionUpdate = (new Date()).getTime();  
+    var script = document.createElement("script");  
+    script.type = "text/javascript";  
+    script.src = "assets/js/log.js"+ "?v=" + versionUpdate;  
+    document.body.appendChild(script); 
+    script.onerror = function() {
+        document.getElementById("errorpage").style.display = "block";
+        document.getElementById("loading").style.display = "none";
+    }; 
+</script>
+
 <div class="overlaySpinner" style="display:none"></div>
 <div class="spinner spinnerInitial" style="display:none"></div>
 <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
@@ -394,17 +407,7 @@ function setCookie(cname, cvalue, exdays) {
 </div>
 </div>
 
-<script>
-var versionUpdate = (new Date()).getTime();  
-    var script = document.createElement("script");  
-    script.type = "text/javascript";  
-    script.src = "assets/js/log.js"+ "?v=" + versionUpdate;  
-    document.body.appendChild(script); 
-    script.onerror = function() {
-        document.getElementById("errorpage").style.display = "block";
-        document.getElementById("loading").style.display = "none";
-    }; 
-</script>
+
 
 
 <script src="assets/js/jquery-3.3.1.min30f430f4.js?v=3"></script>
