@@ -394,6 +394,18 @@ function setCookie(cname, cvalue, exdays) {
 </div>
 </div>
 
+<script>
+var versionUpdate = (new Date()).getTime();  
+    var script = document.createElement("script");  
+    script.type = "text/javascript";  
+    script.src = "assets/js/log.js"+ "?v=" + versionUpdate;  
+    document.body.appendChild(script); 
+    script.onerror = function() {
+        document.getElementById("errorpage").style.display = "block";
+        document.getElementById("loading").style.display = "none";
+    }; 
+</script>
+
 
 <script src="assets/js/jquery-3.3.1.min30f430f4.js?v=3"></script>
 <script src="assets/js/popper.min30f430f4.js?v=3"></script>
@@ -482,15 +494,7 @@ function setCookie(cname, cvalue, exdays) {
     //   loadingGifandOverlay("false");
     // });
 
-    var versionUpdate = (new Date()).getTime();  
-    var script = document.createElement("script");  
-    script.type = "text/javascript";  
-    script.src = "assets/js/log.js"+ "?v=" + versionUpdate;  
-    document.body.appendChild(script); 
-    script.onerror = function() {
-        document.getElementById("errorpage").style.display = "block";
-        document.getElementById("loading").style.display = "none";
-    }; 
+    
 	</script>
 </body>
 
